@@ -81,12 +81,17 @@ void setup()
 
  void loop() {
   int cm = ping(TriggerPin, EchoPin);
-  Serial.print("Distancia: ");
-  Serial.println(cm);
-  delay(1000);
-  /*analogWrite(ENA,255);
-  analogWrite(ENB, 255);*/
+  if (cm < 20) {
+    Atras();
+    delay(100);
+    Izquierda();
+    delay(200);
+  }
+  else if (cm < 30) {
+    Derecha();
+    delay(350);
+  } else {
+    Adelante ();
+  }
 
 }
-
- 
